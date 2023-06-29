@@ -1,9 +1,16 @@
-import "./App.css";
-import { useEffect, useState } from "react";
-import { ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Listing from "./Listing";
-import { sendGET } from "./api_utils";
+// import "./App.css";
+// import { useEffect, useState } from "react";
+// import { ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
+// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// import Listing from "./Listing";
+// import { sendGET } from "./api_utils";
+
+require("./App.css");
+const { useEffect, useState } = require("react");
+const { ImageList, ImageListItem, ImageListItemBar } = require("@mui/material");
+const { BrowserRouter: Router, Route, Routes } = require("react-router-dom");
+const Listing = require("./Listing");
+const { sendGET } = require("./api_utils");
 
 function Home({ results, updateResults }) {
   const [keyword, setKeyword] = useState("");
