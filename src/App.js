@@ -19,7 +19,7 @@ function Home({ results, updateResults }) {
 
   const searchQuery = (e) => {
     e.preventDefault();
-    sendGET("/get_best_images?", { q: keyword }).then((res) => {
+    sendGET("", { q: keyword }).then((res) => {
       updateResults(res.results);
     });
   };
