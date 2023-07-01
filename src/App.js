@@ -13,12 +13,14 @@ const Listing = require("./Listing");
 const { sendGET } = require("./api_utils");
 
 function Home({ results, updateResults }) {
+  const [initialLoad, setInitialLoad] = useState(true);
   const [keyword, setKeyword] = useState("");
   // const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(null);
   const [imageLoading, setImageLoading] = useState(true);
 
   const searchQuery = (e) => {
+    setInitialLoad(false);
     setLoading(true);
     setImageLoading(true);
     e.preventDefault();
@@ -141,7 +143,7 @@ function Home({ results, updateResults }) {
             color: "gainsboro",
           }}
         />
-        {loading === null && (
+        {initialLoad && (
           <div
             style={{
               position: "absolute",
@@ -155,6 +157,28 @@ function Home({ results, updateResults }) {
             }}>
             First time loading can take up to 15 seconds, {"\n"}
             Thank you for waiting!
+          </div>
+        )}
+        {loading && (
+          <div
+            style={{
+              position: "absolute",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+              fontSize: 25,
+              color: "grey",
+              // fontStyle: "italic",
+            }}>
+            <img
+              style={{
+                width: 50,
+                height: 50,
+              }}
+              src={require("./assets/loading.gif")}
+              alt="My GIF"
+            />
           </div>
         )}
         {!loading && results.length !== 0 && (
