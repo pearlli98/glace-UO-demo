@@ -155,8 +155,7 @@ function Home({ results, updateResults }) {
               color: "grey",
               // fontStyle: "italic",
             }}>
-            First time loading can take up to 15 seconds, {"\n"}
-            Thank you for waiting!
+            First time loading can take up to 15 seconds, thanks for waiting!
           </div>
         )}
         {loading && (
