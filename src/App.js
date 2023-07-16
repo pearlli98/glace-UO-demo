@@ -25,6 +25,7 @@ function Home({ results, updateResults }) {
     setImageLoading(true);
     e.preventDefault();
     sendGET("", { q: keyword }).then((res) => {
+      console.log(res);
       updateResults(res.results);
     });
   };
@@ -218,9 +219,10 @@ function Home({ results, updateResults }) {
                     title={item.title}
                     position="bottom">
                     <img
-                      src={item.image_paths[0]}
-                      // src={require(`.${item.image_paths[0].slice(36)}`)}
-                      // srcSet={require(`.${item.image_paths[0].slice(36)}`)}
+                      src={item.imageKey[0]}
+                      // src={require(`.${item.imageKey[0].slice(29)}`)}
+                      // srcSet={require(`.${item.imageKey[0].slice(29)}`)}
+                      // '/Users/pearlli/Desktop/lambda/0714_all_images/bm_577+0.jpg'
                       alt={item.title}
                       loading="lazy"
                       onLoad={handleImageLoad}
